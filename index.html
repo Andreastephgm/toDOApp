@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo's</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+</head>
+<body>
+    <header>
+        <h1>Todo's App!</h1>
+    </header>
+    <main>
+        <p>New Task</p>
+        <input type="text" name="New Task" id="newTask" placeholder="Write your next task">
+        <button type="submit" id="goButton">Go!</button>
+        <button type="submit" id="cleanButton">Clean</button>
+        <div id="cleanModal" class="modal">
+            <div class="modal-content">
+              <h2>Oops</h2>
+              <img src="./assets/oops.png" id="oops">
+              <p>¿Estás seguro de borrar todos tus todo's?</p>
+              <div class="button-group">
+                <button id="yesBtn">Sí</button>
+                <button id="noBtn">No</button>
+              </div>
+            </div>
+          </div>
+        <ul id="taskList">
+
+        </ul>
+    </main>
+    <script src="./script.js"></script>
+    <footer>
+        <div class="social">
+          <div class="item">
+            <img src="./assets/BROWN-CAT.png" alt="GitHub" width="20">
+            <p class="label2">GitHub:<a href="https://github.com/Andreastephgm">https://github.com/Andreastephgm</a></p>
+          </div>
+          <div class="item">
+            <img src="./assets/linkedin-BROWN.png" alt="LinkedIn" width="20">
+            <p class="label2">LinkedIn: <a href="https://www.linkedin.com/in/andreastefannydev/">https://www.linkedin.com/in/andreastefannydev/</a></p>
+          </div>
+        </div>
+        <p id="name">Desarrollado por: Andrea Stefanny Garcia Mejia</p>
+        <p id="developer">Desarrolladora FullStack</p>
+      </footer>
+</body>
+</html>
