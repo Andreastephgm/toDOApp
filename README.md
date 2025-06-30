@@ -2,8 +2,6 @@
 
 A simple and user-friendly **To-Do application** built to help you manage your daily tasks efficiently. Add, edit, delete, and mark tasks as complete with ease.
 
-![To-Do App Screenshot](https://github.com/Andreastephgm/toDOApp/raw/main/assets/preview.png)
-
 ---
 
 ## 🚀 Features
