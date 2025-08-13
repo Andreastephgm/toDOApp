@@ -68,6 +68,30 @@ body {
     height: 100px;
 }
 
+li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+li .task-text {
+    flex: 1;
+}
+
+li .buttons {
+    display: flex;
+    gap: 6px; 
+}
+
+
+.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+
+
 footer {
     background-color: #e8d5c4;
     position: fixed;
