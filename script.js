@@ -10,6 +10,30 @@ const modal = document.getElementById("cleanModal");
 const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
 
+const checkIcon = `
+<svg class="icon-check" viewBox="0 0 24 24" aria-hidden="true"
+     fill="none" stroke="currentColor" stroke-width="2"
+     stroke-linecap="round" stroke-linejoin="round">
+  <path d="M20 6L9 17l-5-5"></path>
+</svg>`;
+
+const deleteIcon =` <svg class="icon-delete" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+     stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <polyline points="3 6 5 6 21 6"></polyline>
+  <path d="M19 6l-2 14H7L5 6"></path>
+  <path d="M10 11v6"></path>
+  <path d="M14 11v6"></path>
+  <path d="M9 6V4h6v2"></path>
+</svg>`;
+
+const modifyIcon = `
+<svg class="icon-modify" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+     stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 20h9"></path>
+  <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"></path>
+</svg>`;
+
+
 loadTasks();
 
 async function loadTasks() {
@@ -21,17 +45,15 @@ async function loadTasks() {
       let li = document.createElement("li");
       li.innerHTML = `
         <span class="task-text ${todo.completed ? 'completed' : ''}">${todo.name}</span>
-        <button class="done-btn" data-id="${todo.id}">✅</button>
-        <button class="delete-btn" data-id="${todo.id}">❌</button>
+        <button class="done-btn" data-id="${todo.id}">
+        ${checkIcon}
+        </button>
+        <button class="delete-btn" data-id="${todo.id}">${deleteIcon}</button>
+        <button class="modify-btn" data-id="${todo.id}">${modifyIcon}</button>
       `;
 
-      li.querySelector(".done-btn").addEventListener("click", () => {
-        li.querySelector(".task-text").classList.toggle("completed");
-      });
-      
       li.querySelector(".delete-btn").addEventListener("click", async () => {
-        const todoId = todo.id;
-        await fetch(`${apiUrl}/${todoId}`, { method: "DELETE" });
+        await fetch(`${apiUrl}/${todo.id}`, { method: "DELETE" });
         li.remove(); 
       });
 
@@ -42,6 +64,7 @@ async function loadTasks() {
     console.error("Error loading tasks:", error);
   }
 }
+
 
 async function addTask(name) {
   await apiRequest(apiUrl, 'POST', { name });
@@ -58,6 +81,11 @@ async function deleteTask(id) {
   loadTasks();
 }
 
+async function modifyTask(id, newName, completed) {
+  await apiRequest(`${apiUrl}/${id}`, 'PUT', { name: newName, completed });
+  loadTasks();  
+}
+
 goButton.addEventListener("click", async function () {
     let taskText = newTaskInput.value.trim();
     if (taskText) {
@@ -69,16 +97,36 @@ goButton.addEventListener("click", async function () {
 });
 
 taskList.addEventListener("click", function (e) {
-    if (e.target.classList.contains("delete-btn")) {
-        deleteTask(e.target.dataset.id);
+    const deleteBtn = e.target.closest(".delete-btn");
+    const doneBtn = e.target.closest(".done-btn");
+    const modifyBtn = e.target.closest(".modify-btn");
+
+    if (deleteBtn) {
+        deleteTask(deleteBtn.dataset.id);
     }
-    if (e.target.classList.contains("done-btn")) {
-        const li = e.target.parentElement;
+
+    if (doneBtn) {
+        const li = doneBtn.parentElement;
         const taskText = li.querySelector(".task-text").textContent;
         const done = li.querySelector(".task-text").classList.contains("completed");
-        toggleDone(e.target.dataset.id, taskText, completed);
+        toggleDone(doneBtn.dataset.id, taskText, done);
     }
+
+   if (modifyBtn) {
+    const li = modifyBtn.parentElement;
+    const currentName = li.querySelector(".task-text").textContent;
+    const isCompleted = li.querySelector(".task-text").classList.contains("completed");
+    const newTaskName = prompt("Modify task:", currentName);
+
+    if (newTaskName && newTaskName.trim() !== "") {
+        modifyTask(modifyBtn.dataset.id, newTaskName.trim(), isCompleted);
+    } else {
+        alert("Please enter a valid task name.");
+    } 
+}
+
 });
+
 
 cleanButton.addEventListener("click", function () {
     modal.style.display = "block";

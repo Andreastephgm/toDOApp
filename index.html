@@ -10,21 +10,23 @@
     
 </head>
 <body>
+  <img class="flower flower--tl" src="./assets/flowers-corner.svg" alt="" aria-hidden="true">
     <header>
         <h1>Todo's App!</h1>
+        <img src="./assets/flower-divider.svg" alt="" aria-hidden="true" style="width: min(92%,680px); display:block; margin: 6px auto 0; opacity:.8;">
     </header>
     <main>
         <p>New Task</p>
         <input type="text" name="New Task" id="newTask" placeholder="Write your next task">
-        <button type="submit" id="goButton">Go!</button>
-        <button type="submit" id="cleanButton">Clean</button>
+        <button type="submit" id="goButton"> <img src="./assets/flower-icon.svg" alt="" aria-hidden="true" style="vertical-align:middle; margin-right:6px;"> Go!</button>
+        <button type="submit" id="cleanButton"><img src="./assets/flower-icon.svg" alt="" aria-hidden="true" style="vertical-align:middle; margin-right:6px;"> Clean</button>
         <div id="cleanModal" class="modal">
             <div class="modal-content">
               <h2>Oops</h2>
               <img src="./assets/oops.png" id="oops">
-              <p>¿Estás seguro de borrar todos tus todo's?</p>
+              <p>Do you want to delete all your todo's?</p>
               <div class="button-group">
-                <button id="yesBtn">Sí</button>
+                <button id="yesBtn">Yes</button>
                 <button id="noBtn">No</button>
               </div>
             </div>
@@ -33,7 +35,6 @@
 
         </ul>
     </main>
-    <script src="./script.js"></script>
     <footer>
         <div class="social">
           <div class="item">
@@ -45,8 +46,8 @@
             <p class="label2">LinkedIn: <a href="https://www.linkedin.com/in/andreastefannydev/">https://www.linkedin.com/in/andreastefannydev/</a></p>
           </div>
         </div>
-        <p id="name">Desarrollado por: Andrea Stefanny Garcia Mejia</p>
-        <p id="developer">Desarrolladora FullStack</p>
       </footer>
+      <img class="flower flower--br" src="./assets/flowers-corner.svg" alt="" aria-hidden="true">
+      <script src="./script.js"></script>
 </body>
 </html>

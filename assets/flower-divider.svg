@@ -1,0 +1,36 @@
+<svg width="680" height="80" viewBox="0 0 680 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <linearGradient id="g1" x1="0" x2="1">
+      <stop offset="0" stop-color="#ffb4b4"/>
+      <stop offset="1" stop-color="#ff9aa2"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0" x2="1">
+      <stop offset="0" stop-color="#e7c6ff"/>
+      <stop offset="1" stop-color="#a06cd5"/>
+    </linearGradient>
+  </defs>
+  <!-- Tallitos -->
+  <path d="M20,60 C150,10 530,10 660,60" fill="none" stroke="#caffbf" stroke-width="6" stroke-linecap="round" opacity="0.8"/>
+  <path d="M40,65 C170,20 510,20 640,65" fill="none" stroke="#b7f3a6" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+  <!-- Flores pequeñas -->
+  <g>
+    <g transform="translate(110,35)">
+      <circle r="5" fill="#a06cd5"/>
+      <ellipse rx="9" ry="14" fill="url(#g1)"/>
+      <ellipse rx="9" ry="14" fill="url(#g1)" transform="rotate(60)"/>
+      <ellipse rx="9" ry="14" fill="url(#g1)" transform="rotate(120)"/>
+    </g>
+    <g transform="translate(290,28)">
+      <circle r="5" fill="#a06cd5"/>
+      <ellipse rx="9" ry="14" fill="url(#g2)"/>
+      <ellipse rx="9" ry="14" fill="url(#g2)" transform="rotate(60)"/>
+      <ellipse rx="9" ry="14" fill="url(#g2)" transform="rotate(120)"/>
+    </g>
+    <g transform="translate(470,35)">
+      <circle r="5" fill="#a06cd5"/>
+      <ellipse rx="9" ry="14" fill="url(#g1)"/>
+      <ellipse rx="9" ry="14" fill="url(#g1)" transform="rotate(60)"/>
+      <ellipse rx="9" ry="14" fill="url(#g1)" transform="rotate(120)"/>
+    </g>
+  </g>
+</svg>
